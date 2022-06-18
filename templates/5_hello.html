@@ -1,0 +1,24 @@
+{% extends '8_basebootstrap.html' %}
+{% import '6_macro.html' as macros %}
+
+{% block title %}
+    {{super()}} Bienvenido
+{% endblock %}
+
+{%block content %}
+    {% if user_ip %}
+        <h1>Hello Diego, tu IP es {{user_ip}}</h1>
+    {% else %}
+        <a href="{{url_for('index')}}">Ir a inicio</a>
+    {% endif %}
+
+    <ul>
+        {% for todo in todos%}
+           {{macros.render_todo(todo)}}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+<!-- El primero es un archivo "base" de html que podemos reutilizar en otros templates, para nuestro caso, extendemos el base.html y luego tenemos que colocar los bloques de este html que queremos que se renderizen en el bloque principal, como es el caso de title y content.
+Con macros renderizamos los "todos" en otro lado y solo necesitamos importarlo para que pueda ser utilizado -->

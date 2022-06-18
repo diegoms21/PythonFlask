@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %} Flask Platzi | {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/main.css')}}">
+</head>
+<body>
+    <header>
+        {% include '7_navbar.html' %}
+    </header>
+    {% block content %}
+    {%endblock %}
+</body>
+</html>
+
+<!-- Estructura general de html que se esta usando de ejemplo para el ejercicio -->
+
+<!-- Con link podemos referenciar los estilos css que modifican la imagen agregada -->
